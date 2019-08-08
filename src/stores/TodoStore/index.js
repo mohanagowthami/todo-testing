@@ -8,6 +8,7 @@ class TodoStore {
       description: description,
       id: this.count++
     };
+    console.log(todo);
     this.todos.push(todo);
   }
 }

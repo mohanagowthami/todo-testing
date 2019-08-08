@@ -7,8 +7,13 @@ const myMock = jest.fn();
 describe(" testing the todoApp", () => {
   const todoStore = new TodoStore();
   const todoDescription = " some daily todo";
-  it("should test callbackfun adding todo in todo store", () => {
-    const obj = render(<TodoApp todoDescription={todoDescription} />);
+  it("should test callbackfun adding todo in todo store", async () => {
+    expect.assertions(1);
+    const obj = await render(
+      <TodoApp todoDescription={todoDescription} todoStore={todoStore} />
+    );
+    console.log(todoStore.todos);
+
     expect(todoStore.todos[0].description).toBe(todoDescription);
   });
 });
