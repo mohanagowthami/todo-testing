@@ -2,18 +2,26 @@ import TodoApp from "./index";
 import React from "react";
 import { render, fireEvent, cleanup } from "@testing-library/react";
 import TodoStore from "../../stores/TodoStore/index";
-afterEach(cleanup);
-const myMock = jest.fn();
-describe(" testing the todoApp", () => {
-  const todoStore = new TodoStore();
-  const todoDescription = " some daily todo";
-  it("should test callbackfun adding todo in todo store", async () => {
-    expect.assertions(1);
-    const obj = await render(
-      <TodoApp todoDescription={todoDescription} todoStore={todoStore} />
-    );
-    console.log(todoStore.todos);
 
-    expect(todoStore.todos[0].description).toBe(todoDescription);
+afterEach(cleanup);
+describe("testing the todoApp", () => {
+  it(" should test  todolistItem", () => {
+    const todoStore = new TodoStore();
+    todoStore.addTodo("todo test2");
+    todoStore.addTodo("todo test3");
+    const { getAllByRole } = render(<TodoApp todoStore={todoStore} />);
+    const todosItemList = getAllByRole("todo");
+    expect(todosItemList.length).toBe(todoStore.todos.length);
+  });
+
+  it("should test callbackfun adding todo in todo store", () => {
+    const todoStore = new TodoStore();
+    const { getByTestId } = render(<TodoApp todoStore={todoStore} />);
+    const enterTodo = "todo test1";
+    fireEvent.change(getByTestId("user-input"), {
+      target: { value: enterTodo }
+    });
+    fireEvent.click(getByTestId("add-todo"));
+    expect(todoStore.todos[0].description).toBe(enterTodo);
   });
 });

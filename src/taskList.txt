@@ -1,7 +1,7 @@
 functionality testing
 component testing
   AddTodo
-     onAddTodo(callbackfun)
+   [*]  onAddTodo(callbackfun)
 
   TodoList
      onTodoList(checking it contains all todos or not ,length)
@@ -17,7 +17,7 @@ component testing
    store testing
 
   1)TodoStore
-    addTodo
+   [*] addTodo
     onTodoStateUpdate
     onClearCompleted
 
