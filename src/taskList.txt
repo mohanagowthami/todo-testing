@@ -1,0 +1,41 @@
+functionality testing
+component testing
+  AddTodo
+     onAddTodo(callbackfun)
+
+  TodoList
+     onTodoList(checking it contains all todos or not ,length)
+    =>TodoListItem
+         =>onIsCompleted( fun strike,callback )
+         =>onTodoUpdate(callback,returning the user enter value)
+         =>onRemoveTodo(callback,id)
+  ActionsComponent
+        =>onSelectedTodoListType(callback with appropriate selectedtype)
+
+   
+
+   store testing
+
+  1)TodoStore
+    addTodo
+    onTodoStateUpdate
+    onClearCompleted
+
+
+  2)TodoModel
+    descriptionUpdate
+    updateTodoCompleteStatus
+    onRemoveTodo
+
+
+
+
+
+
+
+
+
+
+
+
+  
