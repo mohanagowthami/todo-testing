@@ -18,6 +18,13 @@ class TodoStateSelection extends Component {
         <button value={active} onClick={this.submit} data-testid={active}>
           active
         </button>
+        <button
+          data-testid="onClearCompleted"
+          onClick={this.props.onClearCompleted}
+        >
+          {" "}
+          onClearCompleted
+        </button>
       </div>
     );
   }

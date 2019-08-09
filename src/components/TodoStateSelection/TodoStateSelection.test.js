@@ -8,13 +8,16 @@ describe("testing the todo state selection component", () => {
   const myMock = jest.fn();
   it("should test call back function with argument of selection state", () => {
     const { getByTestId } = render(
-      <TodoStateSelection onStateUpdate={myMock} />
+      <TodoStateSelection onStateUpdate={myMock} onClearCompleted={myMock} />
     );
     fireEvent.click(getByTestId(active));
     expect(myMock).toHaveBeenCalledWith(active);
     fireEvent.click(getByTestId(completed));
     expect(myMock).toHaveBeenCalledWith(completed);
+
     fireEvent.click(getByTestId(all));
     expect(myMock).toHaveBeenCalledWith(all);
+    fireEvent.click(getByTestId("onClearCompleted"));
+    expect(myMock).toHaveBeenCalled();
   });
 });

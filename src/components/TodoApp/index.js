@@ -12,13 +12,20 @@ class TodoApp extends Component {
   onStateUpdate = type => {
     this.props.todoStore.updateSelectedTodoState(type);
   };
+  onClearCompleted = () => {
+    this.props.todoStore.onClearCompleted();
+  };
+
   render() {
     const todos = this.props.todoStore.filteredTodos;
     return (
       <div>
         <AddTodo onAddTodo={this.onAddTodo} />
         <TodoList todos={todos} />
-        <TodoStateSelection onStateUpdate={this.onStateUpdate} />
+        <TodoStateSelection
+          onStateUpdate={this.onStateUpdate}
+          onClearCompleted={this.onClearCompleted}
+        />
       </div>
     );
   }
