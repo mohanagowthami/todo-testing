@@ -13,7 +13,7 @@ class TodoApp extends Component {
     this.props.todoStore.updateSelectedTodoState(type);
   };
   render() {
-    const todos = this.props.todoStore.getTodos();
+    const todos = this.props.todoStore.filteredTodos;
     return (
       <div>
         <AddTodo onAddTodo={this.onAddTodo} />

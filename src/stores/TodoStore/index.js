@@ -18,7 +18,8 @@ class TodoStore {
     this.todoSelectedType = value;
   }
 
-  getTodos() {
+  @computed
+  get filteredTodos() {
     if (this.todoSelectedType == completed)
       return this.todos.filter(todo => {
         return todo.isCompleted === true;
