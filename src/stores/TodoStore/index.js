@@ -1,14 +1,16 @@
 import { observable } from "mobx";
-
+import TodoModel from "../models/TodoModel/index";
 class TodoStore {
   count = 0;
   @observable todos = [];
   addTodo(description) {
     const todo = {
       description: description,
-      id: this.count++
+      id: this.count++,
+      isCompleted: false
     };
-    this.todos.push(todo);
+    console.log("todo are ", todo.description);
+    this.todos.push(new TodoModel(todo, this));
   }
 }
 export default TodoStore;

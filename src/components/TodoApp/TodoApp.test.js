@@ -13,7 +13,9 @@ describe("testing the todoApp", () => {
     const todosItemList = getAllByRole("todo");
     expect(todosItemList.length).toBe(todoStore.todos.length);
   });
+});
 
+describe("testing todo app2", () => {
   it("should test callbackfun adding todo in todo store", () => {
     const todoStore = new TodoStore();
     const { getByTestId } = render(<TodoApp todoStore={todoStore} />);
@@ -22,6 +24,7 @@ describe("testing the todoApp", () => {
       target: { value: enterTodo }
     });
     fireEvent.click(getByTestId("add-todo"));
+    console.log(todoStore.todos);
     expect(todoStore.todos[0].description).toBe(enterTodo);
   });
 });

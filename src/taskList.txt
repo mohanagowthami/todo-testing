@@ -4,7 +4,7 @@ component testing
    [*]  onAddTodo(callbackfun)
 
   TodoList
-     onTodoList(checking it contains all todos or not ,length)
+    [*] onTodoList(checking it contains all todos or not ,length)
     =>TodoListItem
          =>onIsCompleted( fun strike,callback )
          =>onTodoUpdate(callback,returning the user re enter value)
