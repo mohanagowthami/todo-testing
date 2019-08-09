@@ -24,5 +24,11 @@ class TodoStore {
       });
     else return this.todos;
   }
+
+  onClearCompleted() {
+    this.todos = this.todos.filter(todo => {
+      return todo.isCompleted === false;
+    });
+  }
 }
 export default TodoStore;
