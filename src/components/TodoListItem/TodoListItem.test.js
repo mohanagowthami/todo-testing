@@ -25,4 +25,13 @@ describe(" testing the todolistItem  component", () => {
     fireEvent.click(getByTestId("update"));
     expect(todoStore.todos[0].description).toBe("changed todo description");
   });
+
+  it(" should test the single todo remove", () => {
+    const todoStore = new TodoStore();
+    todoStore.addTodo("be focused");
+    const { getByTestId } = render(<TodolistItem todo={todoStore.todos[0]} />);
+    fireEvent.click(getByTestId("remove"));
+
+    expect(todoStore.todos.length).toBe(0);
+  });
 });
