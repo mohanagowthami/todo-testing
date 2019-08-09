@@ -15,4 +15,13 @@ describe(" testing the todo model", () => {
     todoStore.todos[0].updateTodoDescription(todo);
     expect(todoStore.todos[0].description).toBe(todo);
   });
+
+  it("should test on remove todo in todo model", () => {
+    const todoStore = new TodoStore();
+    todoStore.addTodo(" be focused");
+    todoStore.addTodo("second todo");
+    todoStore.todos[0].removeTodo();
+    expect(todoStore.todos.length).toBe(1);
+    expect(todoStore.todos[0].description).toBe("second Todo");
+  });
 });
