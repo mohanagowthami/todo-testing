@@ -8,7 +8,7 @@ component testing
     =>TodoListItem
        [*]  =>onIsCompleted( fun strike,callback )
        [*]  =>onTodoUpdate(callback,returning the user re enter value)
-         =>onRemoveTodo(callback,id)
+       [*]  =>onRemoveTodo(callback,id)
   ActionsComponent
         =>onSelectedTodoListType(callback with appropriate selectedtype)
 
@@ -18,14 +18,14 @@ component testing
 
   1)TodoStore
    [*] addTodo
-    onTodoStateUpdate
-    onClearCompleted
+       onTodoStateUpdate
+       onClearCompleted
 
 
   2)TodoModel
-    descriptionUpdate
-    updateTodoCompleteStatus
-    onRemoveTodo
+   [*] descriptionUpdate
+    [*]updateTodoCompleteStatus
+    [*]onRemoveTodo
 
 
 
