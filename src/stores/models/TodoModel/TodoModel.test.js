@@ -19,7 +19,7 @@ describe(" testing the todo model", () => {
   it("should test on remove todo in todo model", () => {
     const todoStore = new TodoStore();
     todoStore.addTodo(" be focused");
-    todoStore.addTodo("second todo");
+    todoStore.addTodo("second Todo");
     todoStore.todos[0].removeTodo();
     expect(todoStore.todos.length).toBe(1);
     expect(todoStore.todos[0].description).toBe("second Todo");
