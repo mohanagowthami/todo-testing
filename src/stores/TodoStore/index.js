@@ -12,5 +12,17 @@ class TodoStore {
     console.log("todo are ", todo.description);
     this.todos.push(new TodoModel(todo, this));
   }
+
+  updateSelectedTodoState(state) {
+    if (state == "completed")
+      return this.todos.filter(todo => {
+        return todo.isCompleted === true;
+      });
+    else if (state == "active")
+      return this.todos.filter(todo => {
+        return todo.isCompleted === false;
+      });
+    else return this.todos;
+  }
 }
 export default TodoStore;

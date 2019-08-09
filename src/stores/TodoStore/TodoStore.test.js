@@ -8,12 +8,17 @@ describe(" todostore test suit", () => {
 
   it(" should test the selected state of todos whether they are selected or not", () => {
     const todoStore = new TodoStore();
+    todoStore.addTodo(" be focused");
+    todoStore.todos[0].updateCompletionState();
+    todoStore.addTodo("daily todos");
     const selectedStateTodos = todoStore.todos.filter(todo => {
-      return todo.isCompleted === true;
+      return todo.isCompleted === false;
     });
-    updatedSelectedStateTodos = todoStore.updateSelectedTodoState("completed");
-    expected(JSON.stringify(selectedStateTodos)).toBe(
-      updatedSelectedStateTodos
+    const updatedSelectedStateTodos = todoStore.updateSelectedTodoState(
+      "active"
     );
+    console.log(selectedStateTodos, "selectedStateTodos");
+    console.log(updatedSelectedStateTodos, " updatedSelectedStateTodos");
+    expect(selectedStateTodos).toStrictEqual(updatedSelectedStateTodos);
   });
 });
