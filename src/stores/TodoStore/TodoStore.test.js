@@ -21,4 +21,16 @@ describe(" todostore test suit", () => {
     console.log(updatedSelectedStateTodos, " updatedSelectedStateTodos");
     expect(selectedStateTodos).toStrictEqual(updatedSelectedStateTodos);
   });
+
+  it("should test on clear completed test case", () => {
+    const todoStore = new TodoStore();
+    todoStore.addTodo(" be focused");
+    todoStore.todos[0].updateCompletionState();
+    todoStore.addTodo("daily todos");
+    const clearCompletedTodosCalculated = todoStore.todos.filter(todo => {
+      return todo.isCompleted === false;
+    });
+    todoStore.onClearCompleted();
+    expect(clearCompletedTodosCalculated).toStrictEqual(todoStore.todos);
+  });
 });
