@@ -6,8 +6,8 @@ component testing
   TodoList
     [*] onTodoList(checking it contains all todos or not ,length)
     =>TodoListItem
-       [.]  =>onIsCompleted( fun strike,callback )
-       []  =>onTodoUpdate(callback,returning the user re enter value)
+       [*]  =>onIsCompleted( fun strike,callback )
+       [.]  =>onTodoUpdate(callback,returning the user re enter value)
        []  =>onRemoveTodo(callback,id)
   ActionsComponent
     [*]    =>onSelectedTodoListType(callback with appropriate selectedtype)
