@@ -4,7 +4,7 @@ import { all, active, completed } from "../../components/constants.js";
 class TodoStore {
   count = 0;
   @observable todos = [];
-  @observable state = "all";
+  @observable state = all;
   addTodo(description) {
     const todo = {
       description: description,
