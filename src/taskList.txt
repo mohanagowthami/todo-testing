@@ -19,7 +19,7 @@ component testing
   1)TodoStore
    [*] addTodo
    [*]    onTodoStateUpdate
-       onClearCompleted
+   [*]    onClearCompleted
 
 
   2)TodoModel
