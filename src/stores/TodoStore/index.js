@@ -4,7 +4,7 @@ import { all, active, completed } from "../../components/constants.js";
 class TodoStore {
   count = 0;
   @observable todos = [];
-  @observable state = all;
+  @observable todoSelectedType = all;
   addTodo(description) {
     const todo = {
       description: description,
@@ -16,17 +16,17 @@ class TodoStore {
   }
 
   updateSelectedTodoState(value) {
-    this.state = value;
-    console.log(this.state);
+    this.todoSelectedType = value;
+    console.log(this.todoSelectedType);
   }
 
   getTodos() {
-    console.log(this.state);
-    if (this.state == completed)
+    console.log(this.todoSelectedType);
+    if (this.todoSelectedType == completed)
       return this.todos.filter(todo => {
         return todo.isCompleted === true;
       });
-    else if (this.state == active)
+    else if (this.todoSelectedType == active)
       return this.todos.filter(todo => {
         return todo.isCompleted === false;
       });
