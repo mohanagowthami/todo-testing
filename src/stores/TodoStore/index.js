@@ -1,8 +1,10 @@
-import { observable } from "mobx";
+import { observable, computed } from "mobx";
 import TodoModel from "../models/TodoModel/index";
+import { all, active, completed } from "../../components/constants.js";
 class TodoStore {
   count = 0;
   @observable todos = [];
+  @observable state = "all";
   addTodo(description) {
     const todo = {
       description: description,
@@ -13,12 +15,18 @@ class TodoStore {
     this.todos.push(new TodoModel(todo, this));
   }
 
-  updateSelectedTodoState(state) {
-    if (state == "completed")
+  updateSelectedTodoState(value) {
+    this.state = value;
+    console.log(this.state);
+  }
+
+  getTodos() {
+    console.log(this.state);
+    if (this.state == completed)
       return this.todos.filter(todo => {
         return todo.isCompleted === true;
       });
-    else if (state == "active")
+    else if (this.state == active)
       return this.todos.filter(todo => {
         return todo.isCompleted === false;
       });
