@@ -7,11 +7,14 @@ afterEach(cleanup);
 describe("testing the todoApp", () => {
   it(" should test  todolistItem", () => {
     const todoStore = new TodoStore();
+    todoStore.addTodo("todo test1");
     todoStore.addTodo("todo test2");
-    todoStore.addTodo("todo test3");
     const { getAllByRole } = render(<TodoApp todoStore={todoStore} />);
     const todosItemList = getAllByRole("todo");
     expect(todosItemList.length).toBe(todoStore.todos.length);
+    todoStore.addTodo("todo test3");
+    const updatedTodoItemsList = getAllByRole("todo");
+    expect(updatedTodoItemsList.length).toBe(todoStore.todos.length);
   });
 });
 
@@ -24,7 +27,6 @@ describe("testing todo app2", () => {
       target: { value: enterTodo }
     });
     fireEvent.click(getByTestId("add-todo"));
-    console.log(todoStore.todos);
     expect(todoStore.todos[0].description).toBe(enterTodo);
   });
 });

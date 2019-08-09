@@ -11,17 +11,14 @@ class TodoStore {
       id: this.count++,
       isCompleted: false
     };
-    console.log("todo are ", todo.description);
     this.todos.push(new TodoModel(todo, this));
   }
 
   updateSelectedTodoState(value) {
     this.todoSelectedType = value;
-    console.log(this.todoSelectedType);
   }
 
   getTodos() {
-    console.log(this.todoSelectedType);
     if (this.todoSelectedType == completed)
       return this.todos.filter(todo => {
         return todo.isCompleted === true;

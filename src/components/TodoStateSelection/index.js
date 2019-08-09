@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { all, active, completed } from "../constants.js";
-export default class TodoStateSelection extends Component {
+
+class TodoStateSelection extends Component {
   submit = e => {
     this.props.onStateUpdate(e.target.value);
   };
@@ -8,14 +9,18 @@ export default class TodoStateSelection extends Component {
   render() {
     return (
       <div>
-        <button
-          value={completed}
-          onClick={this.submit}
-          data-testid={completed}
-        />
-        <button value={all} onClick={this.submit} data-testid={all} />
-        <button value={active} onClick={this.submit} data-testid={active} />
+        <button value={completed} onClick={this.submit} data-testid={completed}>
+          completed
+        </button>
+        <button value={all} onClick={this.submit} data-testid={all}>
+          all
+        </button>
+        <button value={active} onClick={this.submit} data-testid={active}>
+          active
+        </button>
       </div>
     );
   }
 }
+
+export default TodoStateSelection;

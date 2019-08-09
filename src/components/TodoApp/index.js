@@ -3,17 +3,24 @@ import React, { Component } from "react";
 import { observer } from "mobx-react";
 import AddTodo from "../AddTodo/index";
 import TodoList from "../TodoList/index";
+import TodoStateSelection from "../TodoStateSelection";
 @observer
-export default class TodoApp extends Component {
+class TodoApp extends Component {
   onAddTodo = todoDescription => {
     this.props.todoStore.addTodo(todoDescription);
   };
+  onStateUpdate = type => {
+    this.props.todoStore.updateSelectedTodoState(type);
+  };
   render() {
+    const todos = this.props.todoStore.getTodos();
     return (
       <div>
         <AddTodo onAddTodo={this.onAddTodo} />
-        <TodoList todos={this.props.todoStore.todos} />
+        <TodoList todos={todos} />
+        <TodoStateSelection onStateUpdate={this.onStateUpdate} />
       </div>
     );
   }
 }
+export default TodoApp;

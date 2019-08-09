@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { observable } from "mobx";
 import { observer } from "mobx-react";
 @observer
-export default class TodoListItem extends Component {
+class TodoListItem extends Component {
   @observable editState = false;
   @observable input = this.props.todo.description;
   submit = () => {
@@ -24,7 +24,7 @@ export default class TodoListItem extends Component {
 
   render() {
     return (
-      <div>
+      <div role="todo">
         <input type="checkbox" onChange={this.submit} data-testid="completed" />
         {this.editState ? (
           <input
@@ -32,7 +32,9 @@ export default class TodoListItem extends Component {
             onChange={this.handleChange}
             data-testid="user-edit-input"
           />
-        ) : null}
+        ) : (
+          <p>{this.input}</p>
+        )}
 
         <button onClick={this.todoEdit} data-testid="edit">
           edit
@@ -40,8 +42,11 @@ export default class TodoListItem extends Component {
         <button onClick={this.todoUpdate} data-testid="update">
           update
         </button>
-        <button onClick={this.onRemove} data-testid="remove" />
+        <button onClick={this.onRemove} data-testid="remove">
+          remove
+        </button>
       </div>
     );
   }
 }
+export default TodoListItem;

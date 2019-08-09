@@ -1,5 +1,4 @@
 import TodoStore from "./index";
-import { observer } from "mobx-react";
 
 describe(" todostore test suit", () => {
   it(" should test add todo function", () => {
@@ -17,8 +16,6 @@ describe(" todostore test suit", () => {
       return todo.isCompleted === false;
     });
     todoStore.updateSelectedTodoState("active");
-    console.log(selectedStateTodos, "selectedStateTodos");
-    console.log(todoStore.getTodos, " updatedSelectedStateTodos");
 
     expect(selectedStateTodos).toStrictEqual(todoStore.getTodos());
   });

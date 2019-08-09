@@ -8,7 +8,7 @@ component testing
     =>TodoListItem
        [*]  =>onIsCompleted( fun strike,callback )
        [*]  =>onTodoUpdate(callback,returning the user re enter value)
-       [.]  =>onRemoveTodo(callback,id)
+       [*]  =>onRemoveTodo(callback,id)
   ActionsComponent
     [*]    =>onSelectedTodoListType(callback with appropriate selectedtype)
 

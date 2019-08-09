@@ -18,7 +18,6 @@ class TodoModel {
     this.description = description;
   }
   @action removeTodo() {
-    console.log;
     this.todoStore.todos.remove(this);
   }
 }
