@@ -22,6 +22,7 @@ describe(" testing the todolistItem  component", () => {
     fireEvent.change(getByTestId("user-edit-input"), {
       target: { value: "changed todo description" }
     });
+    fireEvent.click(getByTestId("update"));
     expect(todoStore.todos[0].description).toBe("changed todo description");
   });
 });
